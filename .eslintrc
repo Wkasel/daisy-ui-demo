@@ -1,0 +1,71 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "singleQuote": true
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["*.js"],
+            "rules": {
+                "@typescript-eslint/no-var-requires": "off",
+                "prettier/prettier": [
+                    "warn",
+                    {
+                        "singleQuote": true,
+                        "printWidth": 120,
+                        "jsxBracketSameLine": true
+                    }
+                ],
+                "react/destructuring-assignment": "off", // Vscode doesn't support automatically destructuring, it's a pain to add a new variable
+                "jsx-a11y/anchor-is-valid": "off", // Next.js use his own internal link system
+                "react/require-default-props": "off", // Allow non-defined react props as undefined
+                "react/jsx-props-no-spreading": "off", // _app.tsx uses spread operator and also, react-hook-form
+                "@next/next/no-img-element": "off", // We currently not using next/image because it isn't supported with SSG mode
+                "consistent-return": "off",
+                "import/prefer-default-export": "off", // Named export is easier to refactor automatically
+                "class-methods-use-this": "off", // _document.tsx use render method without `this` keyword
+                "@typescript-eslint/no-unused-vars": "off",
+                "unused-imports/no-unused-imports": "off",
+                "unused-imports/no-unused-vars": ["off"],
+                "dot-notation": "off",
+                "no-console": "off",
+                "react/prop-types": "off",
+                "import/extensions": "off",
+
+                "react/react-in-jsx-scope": "off",
+                "react/jsx-filename-extension": "off",
+                "import/no-duplicates": "off",
+
+                "@typescript-eslint/restrict-template-expressions": "off",
+                "react/no-unescaped-entities": "off",
+                "react/jsx-curly-brace-presence": "off",
+                "no-use-before-define": "off",
+
+                "@typescript-eslint/no-use-before-define": ["off"],
+                "@typescript-eslint/no-empty-interface": "off",
+                "@typescript-eslint/no-explicit-any": "off",
+                "@typescript-eslint/ban-ts-comment": "off",
+                "@typescript-eslint/no-unsafe-assignment": "off"
+            }
+        }
+    ],
+    "env": {
+        "node": true,
+        "browser": true,
+        "amd": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended"
+    ]
+}
